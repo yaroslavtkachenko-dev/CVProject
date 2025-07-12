@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://unpkg.com; style-src 'self' https://cdn.jsdelivr.net https://fonts.googleapis.com https://unpkg.com; font-src https://fonts.gstatic.com; img-src 'self' https://placehold.co;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://fonts.googleapis.com https://cdn.jsdelivr.net https://unpkg.com; font-src https://fonts.gstatic.com; script-src 'self' https://unpkg.com; img-src 'self' https://placehold.co;">
     <title>CV | Yaroslav Tkachenko</title>
     <meta name="description" content="Personal portfolio website of Yaroslav Tkachenko, developer of the SubSage application.">
     <meta property="og:type" content="website">
@@ -15,27 +15,27 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="style.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="manifest" href="site.webmanifest">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="manifest" href="../site.webmanifest">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" data-aos="fade-down">
     <div class="container">
-        <a class="navbar-brand" href="#about">Yaroslav Tkachenko</a>
+        <a class="navbar-brand" href="#">Yaroslav Tkachenko</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-translate"></i> EN</a>
                     <ul class="dropdown-menu dropdown-menu-dark">
-                        <li><a class="dropdown-item" href="CVProject.html">Українська</a></li>
-                        <li><a class="dropdown-item active" href="javascript:void(0);">English</a></li>
+                        <li><a class="dropdown-item" href="../">Українська</a></li>
+                        <li><a class="dropdown-item active" href="#">English</a></li>
                     </ul>
                 </li>
                 <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
@@ -48,7 +48,7 @@
 </nav>
 <header id="about" class="py-5 text-center" data-aos="fade-up">
     <div class="container">
-        <img src="photo.png" class="img-fluid rounded-circle mb-4 profile-photo" alt="Portrait of Yaroslav Tkachenko, Swift Developer">
+        <img src="../photo.png" class="img-fluid rounded-circle mb-4 profile-photo" alt="Portrait of Yaroslav Tkachenko, Swift Developer">
         <h1 class="display-4">Yaroslav Tkachenko</h1>
         <hr class="my-4">
         <div class="col-lg-8 mx-auto">
@@ -131,8 +131,9 @@
         <p class="mb-0">&copy; 2025 Yaroslav Tkachenko. All rights reserved.</p>
     </div>
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/bootstrap.bundle.min.js"></script>
+<script src="../js/main.js"></script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script src="js/main.js"></script>
+<script>AOS.init({ once: true, duration: 800, offset: 100 });</script>
 </body>
 </html>
