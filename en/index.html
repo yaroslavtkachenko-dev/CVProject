@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://unpkg.com; style-src 'self' https://cdn.jsdelivr.net https://fonts.googleapis.com https://unpkg.com; font-src https://fonts.gstatic.com; img-src 'self' https://placehold.co;">
-
     <title>CV | Yaroslav Tkachenko</title>
     <meta name="description" content="Personal portfolio website of Yaroslav Tkachenko, developer of the SubSage application.">
     <meta property="og:type" content="website">
@@ -13,35 +12,29 @@
     <meta property="og:title" content="CV | Yaroslav Tkachenko">
     <meta property="og:description" content="Personal portfolio website of Yaroslav Tkachenko, developer of the SubSage application.">
     <meta property="og:image" content="https://your-domain.com/og-image.png">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
-    <link rel="stylesheet" href="../style.css">
-
-    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
-    <link rel="manifest" href="../site.webmanifest">
+    <link rel="stylesheet" href="style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
 </head>
 <body>
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" data-aos="fade-down">
     <div class="container">
         <a class="navbar-brand" href="#about">Yaroslav Tkachenko</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-translate"></i> EN</a>
                     <ul class="dropdown-menu dropdown-menu-dark">
-                        <li><a class="dropdown-item" href="../CVProject.html">Українська</a></li>
+                        <li><a class="dropdown-item" href="CVProject.html">Українська</a></li>
                         <li><a class="dropdown-item active" href="javascript:void(0);">English</a></li>
                     </ul>
                 </li>
@@ -53,10 +46,9 @@
         </div>
     </div>
 </nav>
-
 <header id="about" class="py-5 text-center" data-aos="fade-up">
     <div class="container">
-        <img src="../photo.png" class="img-fluid rounded-circle mb-4 profile-photo" alt="Portrait of Yaroslav Tkachenko, Swift Developer">
+        <img src="photo.png" class="img-fluid rounded-circle mb-4 profile-photo" alt="Portrait of Yaroslav Tkachenko, Swift Developer">
         <h1 class="display-4">Yaroslav Tkachenko</h1>
         <hr class="my-4">
         <div class="col-lg-8 mx-auto">
@@ -69,7 +61,6 @@
         </div>
     </div>
 </header>
-
 <section id="experience" class="py-5" data-aos="fade-up">
     <div class="container">
         <h2 class="text-center mb-5 section-title">Experience & Skills</h2>
@@ -90,16 +81,20 @@
             </div>
             <div class="col-lg-6">
                 <h3 class="mb-4">> Technical Skills</h3>
-                <div class="mb-3"><span>SwiftUI</span><div class="progress" style="height: 20px;"><div class="progress-bar" role="progressbar" style="width: 95%;">95%</div></div></div>
-                <div class="mb-3"><span>Core Data</span><div class="progress" style="height: 20px;"><div class="progress-bar bg-success" role="progressbar" style="width: 85%;">85%</div></div></div>
-                <div class="mb-3"><span>WidgetKit</span><div class="progress" style="height: 20px;"><div class="progress-bar bg-info" role="progressbar" style="width: 75%;">75%</div></div></div>
-                <div class="mb-3"><span>UserNotifications</span><div class="progress" style="height: 20px;"><div class="progress-bar bg-warning" role="progressbar" style="width: 80%;">80%</div></div></div>
-                <div class="mb-3"><span>Charts</span><div class="progress" style="height: 20px;"><div class="progress-bar bg-danger" role="progressbar" style="width: 70%;">70%</div></div></div>
+                <div class="skills-container">
+                    <span class="skill-tag">SwiftUI</span>
+                    <span class="skill-tag">Core Data</span>
+                    <span class="skill-tag">WidgetKit</span>
+                    <span class="skill-tag">UserNotifications</span>
+                    <span class="skill-tag">Charts</span>
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">REST API</span>
+                    <span class="skill-tag">Figma</span>
+                </div>
             </div>
         </div>
     </div>
 </section>
-
 <section id="portfolio" class="py-5 bg-light" data-aos="fade-up">
     <div class="container">
         <h2 class="text-center mb-5 section-title">Portfolio</h2>
@@ -123,7 +118,6 @@
         </div>
     </div>
 </section>
-
 <footer id="contact" class="py-5 bg-dark text-white text-center" data-aos="fade-up">
     <div class="container">
         <h2 class="mb-3 section-title">Contact Me</h2>
@@ -137,10 +131,8 @@
         <p class="mb-0">&copy; 2025 Yaroslav Tkachenko. All rights reserved.</p>
     </div>
 </footer>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script src="../js/main.js"></script>
-
+<script src="js/main.js"></script>
 </body>
 </html>
