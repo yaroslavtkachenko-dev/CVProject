@@ -78,6 +78,12 @@ h2.section-title::before {
     display: none !important;
 }
 
+/* Позиціонування dropdown меню справа */
+.navbar-nav .dropdown-menu {
+    right: 0;
+    left: auto;
+}
+
 
 /* --- 3. КНОПКИ (GHOST BUTTONS) --- */
 
@@ -110,18 +116,6 @@ h2.section-title::before {
     color: var(--color-accent);
 }
 
-/* Прогрес-бари */
-.progress {
-    background-color: var(--color-border);
-    border-radius: 0;
-    height: 10px !important;
-}
-
-.progress-bar {
-    background-color: var(--color-text) !important;
-    border-radius: 0;
-}
-
 /* Картки портфоліо */
 .card {
     border: 1px solid var(--color-border) !important;
@@ -135,7 +129,7 @@ h2.section-title::before {
 }
 
 /* Футер */
-footer.bg-dark {
+footer {
     background-color: var(--color-background) !important;
     color: var(--color-text) !important;
     border-top: 1px solid var(--color-border);
@@ -191,4 +185,29 @@ footer a:hover {
     background-color: var(--color-text);
     color: var(--color-background);
     border-color: var(--color-text);
+}
+
+/* Кастомні стилі для бейджів */
+.badge {
+    border-radius: 0;
+    font-weight: 400;
+    padding: 0.4em 0.8em;
+}
+
+/* Фікс для мобільних пристроїв */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--color-border);
+    }
+    .dropdown-menu {
+        position: static !important;
+        float: none !important;
+        width: auto !important;
+        margin-top: 0 !important;
+        background-color: transparent !important;
+        border: 0 !important;
+        box-shadow: none !important;
+    }
 }
