@@ -103,7 +103,7 @@ h2.section-title::before {
   transition: all 0.3s ease;
   font-size: 1.1rem;
   color: var(--color-text);
-  margin-right: 1rem;
+  margin-right: 0;
 }
 
 .theme-switcher:hover {
