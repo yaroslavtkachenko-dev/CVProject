@@ -522,3 +522,159 @@ footer a:hover {
 [data-theme="dark"] .tech-details {
   background-color: #1e1e1e;
 }
+
+/* Запобігаємо горизонтальному скролу на мобільних */
+body {
+  overflow-x: hidden;
+}
+
+/* Фіксимо проблему з fixed navbar */
+body {
+  padding-top: 56px; /* Висота navbar в Bootstrap */
+}
+
+/* ПЛАНШЕТИ І МЕНШЕ (768px) */
+@media (max-width: 768px) {
+  /* Зменшуємо розмір тексту заголовків */
+  .display-4 {
+    font-size: 2rem; /* Було ~3.5rem */
+  }
+
+  /* Зменшуємо фото профілю */
+  .profile-photo {
+    width: 150px;
+    height: 150px;
+  }
+
+  /* Адаптуємо lead текст */
+  .lead {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  /* Робимо код-блок прокручуваним */
+  .code-block {
+    padding: 1rem;
+    font-size: 0.85rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Плавний скрол на iOS */
+  }
+
+  /* Центруємо skill tags */
+  .skills-container {
+    justify-content: center;
+  }
+
+  /* Зменшуємо відступи секцій */
+  section {
+    padding: 3rem 0 !important;
+  }
+}
+
+/* МОБІЛЬНІ ТЕЛЕФОНИ (576px і менше) */
+@media (max-width: 576px) {
+  /* Ще менший заголовок */
+  .display-4 {
+    font-size: 1.75rem;
+  }
+
+  /* Менше фото на малих екранах */
+  .profile-photo {
+    width: 120px;
+    height: 120px;
+  }
+
+  /* Адаптуємо текст */
+  .lead {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* Дуже маленький код-блок */
+  .code-block {
+    font-size: 0.75rem;
+    padding: 0.75rem;
+  }
+
+  /* Менші skill tags */
+  .skill-tag {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  /* Кнопки на всю ширину */
+  .btn {
+    width: 100%;
+    padding: 0.75rem;
+  }
+
+  /* Менші іконки в footer */
+  footer .fs-2 {
+    font-size: 1.3rem !important;
+  }
+
+  /* Ще менші відступи */
+  section {
+    padding: 2.5rem 0 !important;
+  }
+
+  /* Адаптуємо картки проектів */
+  .project-card .card-img-top {
+    height: 150px; /* Менша висота зображень */
+  }
+}
+
+/* ДУЖЕ МАЛІ ТЕЛЕФОНИ (360px і менше) */
+@media (max-width: 360px) {
+  /* Мінімальні розміри для старих телефонів */
+  .navbar-brand {
+    font-size: 0.9rem;
+  }
+
+  .display-4 {
+    font-size: 1.5rem;
+  }
+
+  .profile-photo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .skill-tag {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+/* LANDSCAPE РЕЖИМ на мобільних */
+@media (max-width: 768px) and (orientation: landscape) {
+  /* Зменшуємо висоти для landscape */
+  header {
+    padding: 2rem 0 !important;
+  }
+
+  .profile-photo {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* Touch-friendly розміри (важливо для мобільних!) */
+@media (hover: none) and (pointer: coarse) {
+  /* Мінімальна висота 44px для всіх кліковних елементів (Apple guideline) */
+  .nav-link,
+  .dropdown-item,
+  .btn,
+  footer a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .skill-tag {
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
