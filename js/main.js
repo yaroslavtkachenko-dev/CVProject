@@ -5,26 +5,7 @@ AOS.init({
   offset: 100
 });
 
-// Генерація посилання на email, щоб захистити його від спам-ботів
 document.addEventListener('DOMContentLoaded', function() {
-  const emailLink = document.getElementById('email-link');
-  if (emailLink) {
-    // Зчитуємо дані з data-атрибутів
-    const user = emailLink.getAttribute('data-user');
-    const domain = emailLink.getAttribute('data-domain');
-    
-    if (user && domain) {
-      // Обробник кліку - основний спосіб
-      emailLink.addEventListener('click', function(e) {
-        e.preventDefault();
-        window.location.href = 'mailto:' + user + '@' + domain;
-      });
-      
-      // Також встановлюємо href для доступності (скрін-рідери та контекстне меню)
-      emailLink.setAttribute('href', 'mailto:' + user + '@' + domain);
-    }
-  }
-
   // === ПЕРЕМИКАЧ ТЕМИ ===
   // Отримати збережену тему або встановити світлу за замовчуванням
   const savedTheme = localStorage.getItem('theme') || 'light';
