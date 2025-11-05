@@ -7,13 +7,22 @@ AOS.init({
 
 // Генерація посилання на email, щоб захистити його від спам-ботів
 document.addEventListener('DOMContentLoaded', function() {
-  // Дані для генерації email посилання
-  const user = 'yaroslav.tkachenko';        // Логін email адреси
-  const domain = 'example.com';             // Домен email адреси
-
   const emailLink = document.getElementById('email-link');
   if (emailLink) {
-    emailLink.setAttribute('href', 'mailto:' + user + '@' + domain);
+    // Зчитуємо дані з data-атрибутів
+    const user = emailLink.getAttribute('data-user');
+    const domain = emailLink.getAttribute('data-domain');
+    
+    if (user && domain) {
+      // Обробник кліку - основний спосіб
+      emailLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.location.href = 'mailto:' + user + '@' + domain;
+      });
+      
+      // Також встановлюємо href для доступності (скрін-рідери та контекстне меню)
+      emailLink.setAttribute('href', 'mailto:' + user + '@' + domain);
+    }
   }
 
   // === ПЕРЕМИКАЧ ТЕМИ ===
