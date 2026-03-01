@@ -1,15 +1,18 @@
 // Ініціалізація анімацій при прокрутці
-AOS.init({
-  once: true,
-  duration: 800,
-  offset: 100
-});
+if (typeof AOS !== 'undefined') {
+  AOS.init({
+    once: true,
+    duration: 800,
+    offset: 100
+  });
+}
 
 document.addEventListener('DOMContentLoaded', function() {
   // === ПЕРЕМИКАЧ ТЕМИ ===
   // Отримати збережену тему або встановити світлу за замовчуванням
-  const savedTheme = localStorage.getItem('theme') || 'light';
-  document.documentElement.setAttribute('data-theme', savedTheme);
+  const savedTheme = localStorage.getItem('theme');
+  const theme = ['light', 'dark'].includes(savedTheme) ? savedTheme : 'light';
+  document.documentElement.setAttribute('data-theme', theme);
 
   // Обробник кнопки перемикача
   const themeToggle = document.getElementById('theme-toggle');
@@ -60,8 +63,10 @@ function updateActiveNavigation() {
 
   let currentSection = '';
 
+  const navbarHeight = document.querySelector('.navbar')?.offsetHeight ?? 80;
+
   sections.forEach(section => {
-    const sectionTop = section.offsetTop - 100;
+    const sectionTop = section.offsetTop - navbarHeight - 20;
     const sectionHeight = section.offsetHeight;
 
     if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
@@ -175,14 +180,6 @@ class LazyImageLoader {
 
     // Створюємо нове зображення для попереднього завантаження
     const imageLoader = new Image();
-    
-    imageLoader.onload = () => {
-      this.handleImageLoad(img, src, alt);
-    };
-    
-    imageLoader.onerror = () => {
-      this.handleImageError(img, src);
-    };
 
     // Додаємо timeout для завантаження
     const timeout = setTimeout(() => {

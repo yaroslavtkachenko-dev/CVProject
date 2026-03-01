@@ -166,10 +166,6 @@ h2.section-title::before {
   }
 
   .theme-switcher:hover::after {
-    width: calc(100% - 1.5rem);
-  }
-
-  .theme-switcher:hover::after {
     width: calc(100% - 1rem);
   }
 }
@@ -322,6 +318,11 @@ footer a:hover {
 /* Темна тема - додаткові стилі */
 [data-theme="dark"] .bg-light {
   background-color: #1a1a1a !important;
+}
+
+[data-theme="dark"] .skill-tag {
+  border-color: #555555;
+  color: var(--color-text);
 }
 
 /* Покращення доступності */
@@ -515,10 +516,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Фіксимо проблему з fixed navbar */
-body {
-  padding-top: 56px; /* Висота navbar в Bootstrap */
-}
 
 /* ПЛАНШЕТИ І МЕНШЕ (768px) */
 @media (max-width: 768px) {
