@@ -10,17 +10,30 @@
 /* === СИСТЕМА ТЕМ === */
 :root {
   --font-main: 'Roboto Mono', monospace;
-  --color-text: #212121;
-  --color-background: #FFFFFF;
-  --color-accent: #F5A623;
-  --color-border: #E0E0E0;
+  --color-text: #2d3748;
+  --color-background: #ffffff;
+  --color-accent: #f97316;
+  --color-accent-grad: linear-gradient(135deg, #f97316, #e11d48);
+  --color-border: #e2e8f0;
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --card-bg: #f4f5f7;
+  --card-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  --card-hover-shadow: 0 8px 24px rgba(0,0,0,0.1);
 }
 
 /* Темна тема */
 [data-theme="dark"] {
-  --color-text: #E0E0E0;
-  --color-background: #121212;
-  --color-border: #333333;
+  --color-text: #f1f5f9;
+  --color-background: #0f172a;
+  --color-accent: #fb923c;
+  --color-accent-grad: linear-gradient(135deg, #fb923c, #f43f5e);
+  --color-border: #1e293b;
+  --glass-bg: rgba(15, 23, 42, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --card-bg: #1e293b;
+  --card-shadow: none;
+  --card-hover-shadow: 0 8px 24px rgba(0,0,0,0.3);
 }
 
 /* Застосовуємо глобальні стилі до всього сайту */
@@ -45,10 +58,13 @@ h2.section-title::before {
 /* --- 2. НАВІГАЦІЯ (NAVBAR) --- */
 
 .navbar {
-  background-color: var(--color-background) !important;
-  border-bottom: 1px solid var(--color-border);
+  background-color: var(--glass-bg) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--glass-border);
   padding-top: 1rem;
   padding-bottom: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Колір тексту в меню */
@@ -170,23 +186,40 @@ h2.section-title::before {
   }
 }
 
-/* --- 3. КНОПКИ (GHOST BUTTONS) --- */
+/* --- 3. КНОПКИ (СУЧАСНІ) --- */
 
 .btn-primary {
-  background-color: transparent !important;
-  border: 1px solid var(--color-text) !important;
+  background: transparent !important;
+  border: 1px solid var(--color-accent) !important;
   color: var(--color-text) !important;
-  border-radius: 0 !important; /* Гострі кути */
-  padding: 0.5rem 1.5rem;
-  font-weight: 500;
-  transition: all 0.2s ease-in-out;
+  border-radius: 8px !important;
+  padding: 0.6rem 1.8rem;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--color-accent-grad);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
 }
 
 .btn-primary:hover {
-  background-color: var(--color-text) !important;
-  color: var(--color-background) !important;
-  transform: translateY(-1px);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  color: #ffffff !important;
+  border-color: transparent !important;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px -10px var(--color-accent);
+}
+
+.btn-primary:hover::before {
+  opacity: 1;
 }
 
 /* --- 4. ІНШІ КОМПОНЕНТИ --- */
@@ -204,21 +237,13 @@ h2.section-title::before {
 
 /* Картки портфоліо */
 .card {
-  background-color: var(--color-background);
+  background-color: var(--card-bg) !important;
   color: var(--color-text);
-  border: 1px solid var(--color-border) !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  transition: all 0.2s ease;
-}
-
-.card:hover {
-  border-color: var(--color-text) !important;
-  transform: none; /* Прибираємо ефект підняття */
-}
-
-[data-theme="dark"] .card {
-  background-color: #1e1e1e;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 16px !important;
+  overflow: hidden;
+  box-shadow: var(--card-shadow) !important;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1);
 }
 
 /* Футер */
@@ -237,36 +262,65 @@ footer a:hover {
   color: var(--color-accent) !important;
 }
 
-/* Стилізація блоку коду */
+/* Стилізація блоку коду (Mac OS Window Style) */
 .code-block {
   text-align: left;
-  background-color: var(--color-background);
-  border: 1px solid var(--color-border);
-  padding: 1rem;
+  background-color: var(--card-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  padding: 2.5rem 1.5rem 1.5rem;
+  position: relative;
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
   color: var(--color-text);
+  box-shadow: var(--card-shadow);
+}
+
+/* Mac OS window controls */
+.code-block::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 15px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ff5f56;
+  box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f;
 }
 
 [data-theme="dark"] .code-block {
-  background-color: #1e1e1e;
+  box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);
 }
 
-.code-block .comment { color: #6a737d; }
-.code-block .keyword { color: #d73a49; font-weight: 700; }
-.code-block .variable { color: #005cc5; }
-.code-block .string { color: #032f62; text-decoration: underline; }
+.code-block .comment { color: #6b7280; font-style: italic; }
+.code-block .keyword { color: #dc2626; font-weight: 700; }
+.code-block .variable { color: #2563eb; }
+.code-block .string { color: #059669; text-decoration: none; }
+
+[data-theme="dark"] .code-block .comment { color: #8b949e; }
+[data-theme="dark"] .code-block .keyword { color: #ff7b72; }
+[data-theme="dark"] .code-block .variable { color: #79c0ff; }
+[data-theme="dark"] .code-block .string { color: #a5d6ff; }
 
 .profile-photo {
   width: 180px;
   height: 180px;
   object-fit: cover;
-  border: 5px solid white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  padding: 5px;
+  background: var(--color-accent-grad);
+  box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
 }
 
-/* Стилі для тегів навичок */
+.profile-photo:hover {
+  transform: scale(1.05) rotate(2deg);
+  box-shadow: 0 20px 30px -10px var(--color-accent);
+}
+
+/* Стилі для тегів навичок (Modern Badges) */
 .skills-container {
   display: flex;
   flex-wrap: wrap;
@@ -276,23 +330,37 @@ footer a:hover {
 .skill-tag {
   display: inline-block;
   padding: 0.5rem 1rem;
-  border: 1px solid var(--color-border);
+  background-color: var(--card-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
   font-size: 0.9rem;
   font-weight: 500;
-  transition: all 0.2s ease-in-out;
+  color: var(--color-text);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: var(--card-shadow);
 }
 
 .skill-tag:hover {
-  background-color: var(--color-text);
-  color: var(--color-background);
-  border-color: var(--color-text);
+  transform: translateY(-3px) scale(1.05);
+  background: var(--color-accent-grad);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 5px 15px -5px var(--color-accent);
 }
 
 /* Кастомні стилі для бейджів */
 .badge {
-  border-radius: 0;
+  border-radius: 12px;
   font-weight: 400;
   padding: 0.4em 0.8em;
+}
+
+/* Disabled кнопки */
+.btn-primary:disabled,
+.btn-primary[disabled] {
+  border-color: var(--color-border) !important;
+  color: var(--color-border) !important;
+  opacity: 0.6;
 }
 
 /* Skip-link стилі */
@@ -315,13 +383,12 @@ footer a:hover {
   color: white;
 }
 
-/* Темна тема - додаткові стилі */
 [data-theme="dark"] .bg-light {
-  background-color: #1a1a1a !important;
+  background-color: transparent !important;
 }
 
 [data-theme="dark"] .skill-tag {
-  border-color: #555555;
+  border-color: var(--color-border);
   color: var(--color-text);
 }
 
@@ -346,10 +413,6 @@ footer a:hover {
 /* Плавні анімації */
 .navbar-nav .nav-link {
   transition: all 0.3s ease;
-}
-
-.skill-tag {
-  transition: all 0.2s ease;
 }
 
 /* Покращення для малих екранів */
@@ -493,22 +556,31 @@ footer a:hover {
 }
 
 /* Картка проекту на головній сторінці */
-.project-card {
-  transition: all 0.3s ease;
+.project-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--color-accent) !important;
+  box-shadow: var(--card-hover-shadow) !important;
 }
 
-.project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+.project-card .card-img-top {
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .card-img-top {
+  transform: scale(1.03);
+}
+
+.card-img-top {
+  border-bottom: 1px solid var(--glass-border);
 }
 
 /* Темна тема для сторінок проектів */
 [data-theme="dark"] .feature-card {
-  background-color: #1e1e1e;
+  background-color: var(--card-bg);
 }
 
 [data-theme="dark"] .tech-details {
-  background-color: #1e1e1e;
+  background-color: var(--card-bg);
 }
 
 /* Запобігаємо горизонтальному скролу на мобільних */
@@ -538,10 +610,10 @@ body {
 
   /* Робимо код-блок прокручуваним */
   .code-block {
-    padding: 1rem;
+    padding: 2.5rem 1rem 1rem;
     font-size: 0.85rem;
     overflow-x: auto;
-    -webkit-overflow-scrolling: touch; /* Плавний скрол на iOS */
+    /* Плавний скрол на iOS */
   }
 
   /* Центруємо skill tags */
@@ -577,7 +649,7 @@ body {
   /* Дуже маленький код-блок */
   .code-block {
     font-size: 0.75rem;
-    padding: 0.75rem;
+    padding: 2.5rem 0.75rem 0.75rem;
   }
 
   /* Менші skill tags */
@@ -586,8 +658,8 @@ body {
     padding: 0.3rem 0.6rem;
   }
 
-  /* Кнопки на всю ширину */
-  .btn {
+  /* Кнопки на всю ширину тільки в картках */
+  .card .btn {
     width: 100%;
     padding: 0.75rem;
   }
@@ -694,8 +766,8 @@ img[data-src] {
 /* Завантажене зображення */
 img.loaded {
   opacity: 1;
-  animation: none;
   background: none;
+  animation: fadeInUp 0.5s ease-out;
 }
 
 /* Помилка завантаження */
@@ -750,16 +822,12 @@ img.error {
   }
 }
 
-img.loaded {
-  animation: fadeInUp 0.5s ease-out;
-}
-
 /* Покращення для мобільних пристроїв */
 @media (max-width: 768px) {
   img[data-src] {
     transition: opacity 0.2s ease-in-out;
   }
-  
+
   img.loaded {
     animation: fadeInUp 0.3s ease-out;
   }
