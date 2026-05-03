@@ -113,131 +113,215 @@
 <section id="portfolio" class="py-5 bg-light">
   <div class="container">
     <h2 class="text-center mb-5 section-title">Portfolio</h2>
-    <div class="row">
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card h-100 project-card">
-          <img data-src="../projects/covers/subsage.svg"
-               class="card-img-top" alt="SubSage iOS App">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title">SubSage: Smart Subscription Manager</h5>
-            <p class="card-text">An elegant and intuitive iOS application designed to let you easily manage all of your monthly and annual subscriptions.</p>
-            <div class="mt-auto">
-              <div class="mb-3">
-                <span class="badge">SwiftUI</span>
-                <span class="badge">Core Data</span>
-                <span class="badge">Push Notifications</span>
-                <span class="badge">Analytics</span>
-              </div>
-              <a href="../projects/subsage/en/" class="btn btn-primary w-100">
-                View Details <i class="bi bi-arrow-right ms-1"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card h-100 project-card">
-          <img data-src="../projects/covers/tidyshelf.svg"
-               class="card-img-top" alt="TidyShelf: Read Later & Article Saver">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title">TidyShelf: Read Later & Article Saver</h5>
-            <p class="card-text">Saves articles for later reading — fully offline, no registration. Reader Mode, tags, search, dark mode. Published on Chrome Web Store.</p>
-            <div class="mt-auto">
-              <div class="mb-3">
-                <span class="badge">Manifest V3</span>
-                <span class="badge">JavaScript</span>
-                <span class="badge">Chrome Storage API</span>
-                <span class="badge">Readability</span>
-              </div>
-              <a href="https://chromewebstore.google.com/detail/tidyshelf-read-later-arti/gonfhagnfhpgojiffekkpopdhafenoop" target="_blank" rel="noopener noreferrer" class="btn btn-primary w-100">
-                Chrome Web Store <i class="bi bi-arrow-right ms-1"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card h-100 project-card">
-          <img data-src="../projects/covers/doneday.svg"
-               class="card-img-top" alt="DoneDay iOS App">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title">DoneDay: Task Manager</h5>
-            <p class="card-text">iOS task manager with GTD approach (Tasks → Projects → Areas). Dynamic Island, Push Notifications, EN/UK localization.</p>
-            <div class="mt-auto">
-              <div class="mb-3">
-                <span class="badge">SwiftUI</span>
-                <span class="badge">Core Data</span>
-                <span class="badge">MVVM</span>
-                <span class="badge">Dynamic Island</span>
-              </div>
-              <button class="btn btn-primary w-100" disabled>
-                Coming Soon
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card h-100 project-card">
-          <img data-src="../projects/fgh/fgh-cover.svg"
-               class="card-img-top" alt="FGH — private macOS app">
+    <div class="pcard-grid">
 
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title">FGH: Commercial macOS App</h5>
-            <p class="card-text">A private commercial project. Public details are limited, but a preview build is available to evaluate UX quality, interface polish, and native macOS implementation.</p>
-            <div class="mt-auto">
-              <div class="mb-3">
-                <span class="badge">macOS</span>
-                <span class="badge">Swift</span>
-                <span class="badge">Private Build</span>
-              </div>
-              <a href="../projects/fgh/en/" class="btn btn-primary w-100">
-                View Details <i class="bi bi-arrow-right ms-1"></i>
-              </a>
-            </div>
+      <!-- SubSage -->
+      <article class="pcard">
+        <div class="pcard-code">
+          <div class="pcard-code-head">
+            <div class="pcard-traffic"><span></span><span></span><span></span></div>
+            <div class="pcard-file"><b>SubscriptionStore</b>.swift</div>
+            <span class="pcard-lang">Swift</span>
+          </div>
+          <div class="pcard-code-body"><pre><span class="ln">1</span><span class="kw">@MainActor</span> <span class="kw">final class</span> <span class="ty">SubscriptionStore</span>: <span class="ty">ObservableObject</span> {
+<span class="ln">2</span>  <span class="kw">@Published</span> <span class="kw">var</span> <span class="vr">items</span>: [<span class="ty">Subscription</span>] = []
+<span class="ln">3</span>
+<span class="ln">4</span>  <span class="cm">// reminds 3 days before renewal</span>
+<span class="ln">5</span>  <span class="kw">func</span> <span class="fn">scheduleRenewal</span>(<span class="vr">for</span> <span class="vr">s</span>: <span class="ty">Subscription</span>) <span class="kw">async</span> {
+<span class="ln">6</span>    <span class="kw">await</span> <span class="vr">notifier</span>.<span class="fn">notify</span>(<span class="vr">at</span>: <span class="vr">s</span>.<span class="vr">renewsAt</span>)
+<span class="ln">7</span>  }
+<span class="ln">8</span>}</pre></div>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-meta">
+            <span class="pcard-status dev"><span class="pulse"></span>In Dev</span>
+            <span class="pcard-meta-divider">·</span>
+            <span>iOS 16+</span>
+            <span class="pcard-meta-divider">·</span>
+            <span>2024 — 25</span>
+          </div>
+          <h3 class="pcard-title">SubSage — Subscription Manager</h3>
+          <p class="pcard-desc">An iOS app for managing monthly and annual subscriptions. Spending analytics, push reminders, and archive.</p>
+          <div class="pcard-tags">
+            <span class="pcard-tag">SwiftUI</span>
+            <span class="pcard-tag">Core Data</span>
+            <span class="pcard-tag">Push</span>
+            <span class="pcard-tag">Analytics</span>
+          </div>
+          <div class="pcard-foot">
+            <a href="../projects/subsage/en/" class="pcard-link">View Details <span class="arrow">→</span></a>
           </div>
         </div>
-      </div>
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card h-100 project-card">
-          <img data-src="../projects/covers/pagesieve.svg"
-               class="card-img-top" alt="PageSieve Tool">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title">PageSieve: Smart Contact Finder</h5>
-            <p class="card-text">A tool for searching contacts on web pages.</p>
-            <div class="mt-auto">
-              <div class="mb-3">
-                <span class="badge">HTML</span>
-                <span class="badge">CSS</span>
-                <span class="badge">JavaScript</span>
-              </div>
-              <button class="btn btn-primary w-100" disabled>
-                In Development
-              </button>
-            </div>
+      </article>
+
+      <!-- TidyShelf -->
+      <article class="pcard">
+        <div class="pcard-code">
+          <div class="pcard-code-head">
+            <div class="pcard-traffic"><span></span><span></span><span></span></div>
+            <div class="pcard-file"><b>manifest</b>.json</div>
+            <span class="pcard-lang">MV3</span>
+          </div>
+          <div class="pcard-code-body"><pre><span class="ln">1</span>{
+<span class="ln">2</span>  <span class="st">"manifest_version"</span>: <span class="nm">3</span>,
+<span class="ln">3</span>  <span class="st">"name"</span>: <span class="st">"TidyShelf"</span>,
+<span class="ln">4</span>  <span class="st">"permissions"</span>: [<span class="st">"storage"</span>, <span class="st">"contextMenus"</span>],
+<span class="ln">5</span>  <span class="st">"background"</span>: {
+<span class="ln">6</span>    <span class="st">"service_worker"</span>: <span class="st">"sw.js"</span>
+<span class="ln">7</span>  },
+<span class="ln">8</span>  <span class="st">"action"</span>: { <span class="st">"default_popup"</span>: <span class="st">"popup.html"</span> }
+<span class="ln">9</span>}</pre></div>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-meta">
+            <span class="pcard-status live"><span class="pulse"></span>Live</span>
+            <span class="pcard-meta-divider">·</span>
+            <span>Chrome</span>
+            <span class="pcard-meta-divider">·</span>
+            <span>2025</span>
+          </div>
+          <h3 class="pcard-title">TidyShelf — Read Later</h3>
+          <p class="pcard-desc">A Chrome extension for saving articles offline. Reader Mode, tags, search, dark mode. No servers, no tracking.</p>
+          <div class="pcard-tags">
+            <span class="pcard-tag">Manifest V3</span>
+            <span class="pcard-tag">JavaScript</span>
+            <span class="pcard-tag">Storage API</span>
+            <span class="pcard-tag">Readability</span>
+          </div>
+          <div class="pcard-foot">
+            <a href="https://chromewebstore.google.com/detail/tidyshelf-read-later-arti/gonfhagnfhpgojiffekkpopdhafenoop" target="_blank" rel="noopener noreferrer" class="pcard-link">Chrome Web Store <span class="arrow">↗</span></a>
           </div>
         </div>
-      </div>
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card h-100 project-card">
-          <img data-src="../projects/covers/filekit.svg"
-               class="card-img-top" alt="FileKit — macOS utility for file management">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title">FileKit: macOS File Utility</h5>
-            <p class="card-text">A native macOS utility for fast file management. Details coming soon.</p>
-            <div class="mt-auto">
-              <div class="mb-3">
-                <span class="badge">macOS</span>
-                <span class="badge">SwiftUI</span>
-                <span class="badge">AppKit</span>
-              </div>
-              <button class="btn btn-primary w-100" disabled>
-                Coming Soon
-              </button>
-            </div>
+      </article>
+
+      <!-- DoneDay -->
+      <article class="pcard">
+        <div class="pcard-code">
+          <div class="pcard-code-head">
+            <div class="pcard-traffic"><span></span><span></span><span></span></div>
+            <div class="pcard-file"><b>TaskHierarchy</b>.swift</div>
+            <span class="pcard-lang">Swift</span>
+          </div>
+          <div class="pcard-code-body"><pre><span class="ln">1</span><span class="cm">// GTD model: Areas → Projects → Tasks</span>
+<span class="ln">2</span><span class="kw">enum</span> <span class="ty">Scope</span> { <span class="kw">case</span> <span class="vr">area</span>, <span class="vr">project</span>, <span class="vr">task</span> }
+<span class="ln">3</span>
+<span class="ln">4</span><span class="kw">struct</span> <span class="ty">FocusActivity</span>: <span class="ty">ActivityAttributes</span> {
+<span class="ln">5</span>  <span class="kw">struct</span> <span class="ty">State</span>: <span class="ty">Codable</span>, <span class="ty">Hashable</span> {
+<span class="ln">6</span>    <span class="kw">var</span> <span class="vr">remaining</span>: <span class="ty">Int</span>
+<span class="ln">7</span>  }
+<span class="ln">8</span>}</pre></div>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-meta">
+            <span class="pcard-status soon"><span class="pulse"></span>Soon</span>
+            <span class="pcard-meta-divider">·</span>
+            <span>iOS 17+</span>
+            <span class="pcard-meta-divider">·</span>
+            <span>Q3 2025</span>
+          </div>
+          <h3 class="pcard-title">DoneDay — Task Manager</h3>
+          <p class="pcard-desc">A GTD task manager with a Tasks → Projects → Areas hierarchy. Dynamic Island, push notifications, EN/UK localization.</p>
+          <div class="pcard-tags">
+            <span class="pcard-tag">SwiftUI</span>
+            <span class="pcard-tag">MVVM</span>
+            <span class="pcard-tag">Core Data</span>
+            <span class="pcard-tag">Dynamic Island</span>
+          </div>
+          <div class="pcard-foot">
+            <span class="pcard-link disabled">Coming Soon</span>
           </div>
         </div>
-      </div>
+      </article>
+
+      <!-- FGH (Commercial) -->
+      <article class="pcard">
+        <div class="pcard-code">
+          <div class="pcard-code-head">
+            <div class="pcard-traffic"><span></span><span></span><span></span></div>
+            <div class="pcard-file"><b>OCRPipeline</b>.swift</div>
+            <span class="pcard-lang">Swift</span>
+          </div>
+          <div class="pcard-code-body"><pre><span class="ln">1</span><span class="cm">// commercial · NDA · details redacted</span>
+<span class="ln">2</span><span class="kw">final class</span> <span class="ty">OCRPipeline</span> {
+<span class="ln">3</span>  <span class="kw">let</span> <span class="vr">recognizer</span>: <span class="ty">TextRecognizer</span>
+<span class="ln">4</span>  <span class="kw">let</span> <span class="vr">languages</span>: <span class="ty">Set</span>&lt;<span class="ty">Locale</span>&gt; <span class="cm">// 20+</span>
+<span class="ln">5</span>
+<span class="ln">6</span>  <span class="kw">func</span> <span class="fn">recognize</span>(<span class="vr">_ image</span>: <span class="ty">CGImage</span>) <span class="kw">async throws</span>
+<span class="ln">7</span>    -&gt; [<span class="ty">RecognizedText</span>]
+<span class="ln">8</span>}</pre></div>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-meta">
+            <span class="pcard-status priv"><span class="pulse"></span>Private</span>
+            <span class="pcard-meta-divider">·</span>
+            <span>macOS · NDA</span>
+            <span class="pcard-meta-divider">·</span>
+            <span>2025</span>
+          </div>
+          <h3 class="pcard-title">FGH — Commercial macOS</h3>
+          <p class="pcard-desc">A commercial macOS project with computer vision and OCR. 20+ languages, native implementation. Public details are limited — a preview build is available for UX evaluation.</p>
+          <div class="pcard-tags">
+            <span class="pcard-tag">Swift</span>
+            <span class="pcard-tag">macOS</span>
+            <span class="pcard-tag">ML Kit</span>
+            <span class="pcard-tag">Vision</span>
+          </div>
+          <div class="pcard-foot">
+            <a href="../projects/fgh/en/" class="pcard-link">View Details <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- PageSieve -->
+      <article class="pcard">
+        <div class="pcard-code">
+          <div class="pcard-code-head">
+            <div class="pcard-traffic"><span></span><span></span><span></span></div>
+            <div class="pcard-file"><b>extractContacts</b>.js</div>
+            <span class="pcard-lang">JS</span>
+          </div>
+          <div class="pcard-code-body"><pre><span class="ln">1</span><span class="kw">const</span> <span class="vr">EMAIL</span> = <span class="st">/[\w.+-]+@[\w-]+\.[\w.-]+/g</span>;
+<span class="ln">2</span><span class="kw">const</span> <span class="vr">PHONE</span> = <span class="st">/\+?\d[\d\s().-]{7,}\d/g</span>;
+<span class="ln">3</span>
+<span class="ln">4</span><span class="kw">export function</span> <span class="fn">scan</span>(<span class="vr">html</span>) {
+<span class="ln">5</span>  <span class="kw">const</span> <span class="vr">text</span> = <span class="vr">stripTags</span>(<span class="vr">html</span>);
+<span class="ln">6</span>  <span class="kw">return</span> {
+<span class="ln">7</span>    <span class="vr">emails</span>: <span class="vr">text</span>.<span class="fn">match</span>(<span class="vr">EMAIL</span>) ?? [],
+<span class="ln">8</span>    <span class="vr">phones</span>: <span class="vr">text</span>.<span class="fn">match</span>(<span class="vr">PHONE</span>) ?? []
+<span class="ln">9</span>  };
+<span class="ln">10</span>}</pre></div>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-meta">
+            <span class="pcard-status dev"><span class="pulse"></span>In Dev</span>
+            <span class="pcard-meta-divider">·</span>
+            <span>Web Tool</span>
+            <span class="pcard-meta-divider">·</span>
+            <span>2025</span>
+          </div>
+          <h3 class="pcard-title">PageSieve — Contact Finder</h3>
+          <p class="pcard-desc">A tool for finding email addresses and phone numbers on web pages. Regex parser, CSV export.</p>
+          <div class="pcard-tags">
+            <span class="pcard-tag">JavaScript</span>
+            <span class="pcard-tag">HTML</span>
+            <span class="pcard-tag">CSS</span>
+          </div>
+          <div class="pcard-foot">
+            <span class="pcard-link disabled">In Development</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Next up placeholder -->
+      <article class="pcard pcard-next">
+        <div>
+          <div class="pcard-next-plus">+</div>
+          <div class="pcard-next-label">next up</div>
+          <div class="pcard-next-title">More soon</div>
+          <div class="pcard-next-desc">A Swift macOS utility —<br>in active development.</div>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
