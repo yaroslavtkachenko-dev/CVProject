@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://your-domain.com/sitemap.xml
+Sitemap: https://yaroslavtkachenko-dev.github.io/CVProject/sitemap.xml

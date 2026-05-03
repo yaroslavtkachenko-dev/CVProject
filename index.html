@@ -72,10 +72,10 @@
 </head>
 <body>
 <a href="#about" class="skip-link">Перейти до основного вмісту</a>
-<nav class="navbar navbar-expand-lg fixed-top" data-aos="fade-down">
+<nav class="navbar navbar-expand-lg fixed-top">
     <div class="container align-items-center">
         <a class="navbar-brand me-auto fw-bold" href="#about">Ярослав Ткаченко</a>
-        
+
         <div class="d-flex align-items-center me-3 order-lg-2">
             <button class="theme-switcher me-2" id="theme-toggle" aria-label="Перемикач теми">
               <i class="bi bi-sun-fill theme-icon sun-icon"></i>
@@ -85,12 +85,12 @@
         </div>
 
         <button class="navbar-toggler order-lg-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Перемикач навігації"><span class="navbar-toggler-icon"></span></button>
-        
+
         <div class="collapse navbar-collapse flex-grow-0 ms-auto order-lg-1" id="navbarNav">
             <ul class="navbar-nav mb-2 mb-lg-0">
                 <li class="nav-item"><a class="nav-link px-3" href="#about">Про мене</a></li>
-                <li class="nav-item"><a class="nav-link px-3" href="#experience">Досвід</a></li>
                 <li class="nav-item"><a class="nav-link px-3" href="#portfolio">Портфоліо</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="#experience">Досвід</a></li>
                 <li class="nav-item"><a class="nav-link px-3" href="#contact">Контакти</a></li>
             </ul>
         </div>
@@ -112,7 +112,222 @@
         </div>
     </div>
 </header>
-<section id="experience" class="py-5" data-aos="fade-up">
+<section id="portfolio" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-5 section-title">Портфоліо</h2>
+    <div class="pcard-grid">
+
+      <!-- SubSage -->
+      <article class="pcard">
+        <div class="pcard-code">
+          <div class="pcard-code-head">
+            <div class="pcard-traffic"><span></span><span></span><span></span></div>
+            <div class="pcard-file"><b>SubscriptionStore</b>.swift</div>
+            <span class="pcard-lang">Swift</span>
+          </div>
+          <div class="pcard-code-body"><pre><span class="ln">1</span><span class="kw">@MainActor</span> <span class="kw">final class</span> <span class="ty">SubscriptionStore</span>: <span class="ty">ObservableObject</span> {
+<span class="ln">2</span>  <span class="kw">@Published</span> <span class="kw">var</span> <span class="vr">items</span>: [<span class="ty">Subscription</span>] = []
+<span class="ln">3</span>
+<span class="ln">4</span>  <span class="cm">// нагадує за 3 дні до списання</span>
+<span class="ln">5</span>  <span class="kw">func</span> <span class="fn">scheduleRenewal</span>(<span class="vr">for</span> <span class="vr">s</span>: <span class="ty">Subscription</span>) <span class="kw">async</span> {
+<span class="ln">6</span>    <span class="kw">await</span> <span class="vr">notifier</span>.<span class="fn">notify</span>(<span class="vr">at</span>: <span class="vr">s</span>.<span class="vr">renewsAt</span>)
+<span class="ln">7</span>  }
+<span class="ln">8</span>}</pre></div>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-meta">
+            <span class="pcard-status dev"><span class="pulse"></span>In Dev</span>
+            <span class="pcard-meta-divider">·</span>
+            <span>iOS 16+</span>
+            <span class="pcard-meta-divider">·</span>
+            <span>2024 — 25</span>
+          </div>
+          <h3 class="pcard-title">SubSage — Менеджер підписок</h3>
+          <p class="pcard-desc">iOS-додаток для керування щомісячними та щорічними підписками. Аналітика витрат, push-нагадування, архів.</p>
+          <div class="pcard-tags">
+            <span class="pcard-tag">SwiftUI</span>
+            <span class="pcard-tag">Core Data</span>
+            <span class="pcard-tag">Push</span>
+            <span class="pcard-tag">Analytics</span>
+          </div>
+          <div class="pcard-foot">
+            <a href="projects/subsage/" class="pcard-link">Детальніше <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- TidyShelf -->
+      <article class="pcard">
+        <div class="pcard-code">
+          <div class="pcard-code-head">
+            <div class="pcard-traffic"><span></span><span></span><span></span></div>
+            <div class="pcard-file"><b>manifest</b>.json</div>
+            <span class="pcard-lang">MV3</span>
+          </div>
+          <div class="pcard-code-body"><pre><span class="ln">1</span>{
+<span class="ln">2</span>  <span class="st">"manifest_version"</span>: <span class="nm">3</span>,
+<span class="ln">3</span>  <span class="st">"name"</span>: <span class="st">"TidyShelf"</span>,
+<span class="ln">4</span>  <span class="st">"permissions"</span>: [<span class="st">"storage"</span>, <span class="st">"contextMenus"</span>],
+<span class="ln">5</span>  <span class="st">"background"</span>: {
+<span class="ln">6</span>    <span class="st">"service_worker"</span>: <span class="st">"sw.js"</span>
+<span class="ln">7</span>  },
+<span class="ln">8</span>  <span class="st">"action"</span>: { <span class="st">"default_popup"</span>: <span class="st">"popup.html"</span> }
+<span class="ln">9</span>}</pre></div>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-meta">
+            <span class="pcard-status live"><span class="pulse"></span>Live</span>
+            <span class="pcard-meta-divider">·</span>
+            <span>Chrome</span>
+            <span class="pcard-meta-divider">·</span>
+            <span>2025</span>
+          </div>
+          <h3 class="pcard-title">TidyShelf — Read Later</h3>
+          <p class="pcard-desc">Розширення для збереження статей офлайн. Reader Mode, теги, пошук, dark mode. Без серверів і трекінгу.</p>
+          <div class="pcard-tags">
+            <span class="pcard-tag">Manifest V3</span>
+            <span class="pcard-tag">JavaScript</span>
+            <span class="pcard-tag">Storage API</span>
+            <span class="pcard-tag">Readability</span>
+          </div>
+          <div class="pcard-foot">
+            <a href="https://chromewebstore.google.com/detail/tidyshelf-read-later-arti/gonfhagnfhpgojiffekkpopdhafenoop" target="_blank" rel="noopener noreferrer" class="pcard-link">Chrome Web Store <span class="arrow">↗</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- DoneDay -->
+      <article class="pcard">
+        <div class="pcard-code">
+          <div class="pcard-code-head">
+            <div class="pcard-traffic"><span></span><span></span><span></span></div>
+            <div class="pcard-file"><b>TaskHierarchy</b>.swift</div>
+            <span class="pcard-lang">Swift</span>
+          </div>
+          <div class="pcard-code-body"><pre><span class="ln">1</span><span class="cm">// GTD-модель: Areas → Projects → Tasks</span>
+<span class="ln">2</span><span class="kw">enum</span> <span class="ty">Scope</span> { <span class="kw">case</span> <span class="vr">area</span>, <span class="vr">project</span>, <span class="vr">task</span> }
+<span class="ln">3</span>
+<span class="ln">4</span><span class="kw">struct</span> <span class="ty">FocusActivity</span>: <span class="ty">ActivityAttributes</span> {
+<span class="ln">5</span>  <span class="kw">struct</span> <span class="ty">State</span>: <span class="ty">Codable</span>, <span class="ty">Hashable</span> {
+<span class="ln">6</span>    <span class="kw">var</span> <span class="vr">remaining</span>: <span class="ty">Int</span>
+<span class="ln">7</span>  }
+<span class="ln">8</span>}</pre></div>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-meta">
+            <span class="pcard-status soon"><span class="pulse"></span>Soon</span>
+            <span class="pcard-meta-divider">·</span>
+            <span>iOS 17+</span>
+            <span class="pcard-meta-divider">·</span>
+            <span>Q3 2025</span>
+          </div>
+          <h3 class="pcard-title">DoneDay — Task Manager</h3>
+          <p class="pcard-desc">GTD task manager з ієрархією Tasks → Projects → Areas. Dynamic Island, push, локалізація EN/UK.</p>
+          <div class="pcard-tags">
+            <span class="pcard-tag">SwiftUI</span>
+            <span class="pcard-tag">MVVM</span>
+            <span class="pcard-tag">Core Data</span>
+            <span class="pcard-tag">Dynamic Island</span>
+          </div>
+          <div class="pcard-foot">
+            <span class="pcard-link disabled">Очікується</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- FGH (Commercial) -->
+      <article class="pcard">
+        <div class="pcard-code">
+          <div class="pcard-code-head">
+            <div class="pcard-traffic"><span></span><span></span><span></span></div>
+            <div class="pcard-file"><b>OCRPipeline</b>.swift</div>
+            <span class="pcard-lang">Swift</span>
+          </div>
+          <div class="pcard-code-body"><pre><span class="ln">1</span><span class="cm">// commercial · NDA · details redacted</span>
+<span class="ln">2</span><span class="kw">final class</span> <span class="ty">OCRPipeline</span> {
+<span class="ln">3</span>  <span class="kw">let</span> <span class="vr">recognizer</span>: <span class="ty">TextRecognizer</span>
+<span class="ln">4</span>  <span class="kw">let</span> <span class="vr">languages</span>: <span class="ty">Set</span>&lt;<span class="ty">Locale</span>&gt; <span class="cm">// 20+</span>
+<span class="ln">5</span>
+<span class="ln">6</span>  <span class="kw">func</span> <span class="fn">recognize</span>(<span class="vr">_ image</span>: <span class="ty">CGImage</span>) <span class="kw">async throws</span>
+<span class="ln">7</span>    -&gt; [<span class="ty">RecognizedText</span>]
+<span class="ln">8</span>}</pre></div>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-meta">
+            <span class="pcard-status priv"><span class="pulse"></span>Private</span>
+            <span class="pcard-meta-divider">·</span>
+            <span>macOS · NDA</span>
+            <span class="pcard-meta-divider">·</span>
+            <span>2025</span>
+          </div>
+          <h3 class="pcard-title">FGH — комерційний macOS</h3>
+          <p class="pcard-desc">Комерційний macOS-проєкт з компʼютерним зором та OCR. 20+ мов, нативна реалізація. Публічні деталі обмежені — preview-збірка доступна для оцінки UX.</p>
+          <div class="pcard-tags">
+            <span class="pcard-tag">Swift</span>
+            <span class="pcard-tag">macOS</span>
+            <span class="pcard-tag">ML Kit</span>
+            <span class="pcard-tag">Vision</span>
+          </div>
+          <div class="pcard-foot">
+            <a href="projects/fgh/" class="pcard-link">Детальніше <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- PageSieve -->
+      <article class="pcard">
+        <div class="pcard-code">
+          <div class="pcard-code-head">
+            <div class="pcard-traffic"><span></span><span></span><span></span></div>
+            <div class="pcard-file"><b>extractContacts</b>.js</div>
+            <span class="pcard-lang">JS</span>
+          </div>
+          <div class="pcard-code-body"><pre><span class="ln">1</span><span class="kw">const</span> <span class="vr">EMAIL</span> = <span class="st">/[\w.+-]+@[\w-]+\.[\w.-]+/g</span>;
+<span class="ln">2</span><span class="kw">const</span> <span class="vr">PHONE</span> = <span class="st">/\+?\d[\d\s().-]{7,}\d/g</span>;
+<span class="ln">3</span>
+<span class="ln">4</span><span class="kw">export function</span> <span class="fn">scan</span>(<span class="vr">html</span>) {
+<span class="ln">5</span>  <span class="kw">const</span> <span class="vr">text</span> = <span class="vr">stripTags</span>(<span class="vr">html</span>);
+<span class="ln">6</span>  <span class="kw">return</span> {
+<span class="ln">7</span>    <span class="vr">emails</span>: <span class="vr">text</span>.<span class="fn">match</span>(<span class="vr">EMAIL</span>) ?? [],
+<span class="ln">8</span>    <span class="vr">phones</span>: <span class="vr">text</span>.<span class="fn">match</span>(<span class="vr">PHONE</span>) ?? []
+<span class="ln">9</span>  };
+<span class="ln">10</span>}</pre></div>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-meta">
+            <span class="pcard-status dev"><span class="pulse"></span>In Dev</span>
+            <span class="pcard-meta-divider">·</span>
+            <span>Web Tool</span>
+            <span class="pcard-meta-divider">·</span>
+            <span>2025</span>
+          </div>
+          <h3 class="pcard-title">PageSieve — Contact Finder</h3>
+          <p class="pcard-desc">Інструмент для пошуку email-адрес та телефонів на веб-сторінках. Regex-парсер, експорт у CSV.</p>
+          <div class="pcard-tags">
+            <span class="pcard-tag">JavaScript</span>
+            <span class="pcard-tag">HTML</span>
+            <span class="pcard-tag">CSS</span>
+          </div>
+          <div class="pcard-foot">
+            <span class="pcard-link disabled">У розробці</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Next up placeholder -->
+      <article class="pcard pcard-next">
+        <div>
+          <div class="pcard-next-plus">+</div>
+          <div class="pcard-next-label">next up</div>
+          <div class="pcard-next-title">Більше скоро</div>
+          <div class="pcard-next-desc">macOS-утиліта на Swift —<br>в активній розробці.</div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+<section id="experience" class="py-5">
     <div class="container">
         <h2 class="text-center mb-5 section-title">Досвід та Навички</h2>
         <div class="row">
@@ -122,44 +337,27 @@
                     <h5>iOS Розробник на Upwork</h5>
                     <p class="text-muted">Серпень 2025 - Теперішній час | Віддалена робота</p>
                     <ul>
-                        <li>Розробляв комерційний додаток з комп'ютерним зором та розпізнаванням тексту</li>
-                        <li>Інтегрував ML Kit для OCR з підтримкою 20+ мов</li>
-                        <li>Оптимізував продуктивність через кешування та batch processing</li>
-                        <li>Створив систему автоматичного визначення мови з NaturalLanguage</li>
-                        <li>Реалізував preprocessing зображень для покращення точності розпізнавання</li>
-                    </ul>
-                </div>
-                <div class="mb-4">
-                    <h5>Автор проєкту "DoneDay"</h5>
-                    <p class="text-muted">Особистий проєкт | 2024 - 2025</p>
-                    <ul>
-                        <li>Спроектував task manager з GTD-підходом (Tasks → Projects → Areas)</li>
-                        <li>Реалізував архітектуру MVVM + Repository Pattern з чистим розділенням відповідальностей</li>
-                        <li>Інтегрував Core Data для зберігання даних</li>
-                        <li>Реалізував Dynamic Island інтеграцію та Push Notifications</li>
-                        <li>Додав локалізацію EN/UK</li>
+                        <li>Розробляв комерційний OCR-продукт із комп'ютерним зором та багатомовним розпізнаванням тексту.</li>
+                        <li>Підвищив точність розпізнавання через preprocessing, автоматичне визначення мови та інтеграцію ML Kit.</li>
+                        <li>Оптимізував швидкодію за допомогою кешування та batch processing для реальних сценаріїв використання.</li>
                     </ul>
                 </div>
                 <div class="mb-4">
                     <h5>Автор проєкту "TidyShelf"</h5>
                     <p class="text-muted">Chrome Extension | 2025</p>
                     <ul>
-                        <li>Розробив та опублікував розширення для Chrome Web Store</li>
-                        <li>Реалізував Manifest V3 з Service Worker та Content Scripts</li>
-                        <li>Інтегрував Mozilla Readability для Reader Mode</li>
-                        <li>Реалізував теги, пошук, фільтри, статистику та dark mode</li>
-                        <li>100% локальне зберігання — без серверів та трекінгу</li>
+                        <li>Спроєктував і опублікував Manifest V3-розширення в Chrome Web Store.</li>
+                        <li>Реалізував reader mode, теги, пошук, фільтри та локальне збереження статей.</li>
+                        <li>Випустив privacy-first продукт зі 100% локальним зберіганням без серверів і трекінгу.</li>
                     </ul>
                 </div>
                 <div class="mb-4">
                     <h5>Автор проєкту "SubSage"</h5>
                     <p class="text-muted">Особистий проєкт | 2024 - 2025</p>
                     <ul>
-                        <li>Повністю розробив архітектуру додатку з використанням SwiftUI</li>
-                        <li>Реалізував локальне зберігання даних за допомогою Core Data</li>
-                        <li>Інтегрував аналітику підписок та Push Notifications</li>
-                        <li>Реалізував архів підписок та кастомні іконки</li>
-                        <li>Додав локалізацію EN/UK</li>
+                        <li>Створив SwiftUI-додаток для керування підписками з фокусом на зрозумілість, аналітику та нагадування.</li>
+                        <li>Побудував локальне зберігання на Core Data, архів підписок і підтримку кастомних іконок.</li>
+                        <li>Додав двомовний UX, push notifications і цілісний iOS-first досвід використання.</li>
                     </ul>
                 </div>
             </div>
@@ -187,117 +385,8 @@
         </div>
     </div>
 </section>
-<section id="portfolio" class="py-5 bg-light" data-aos="fade-up">
-  <div class="container">
-    <h2 class="text-center mb-5 section-title">Портфоліо</h2>
-    <div class="row">
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card h-100 project-card" data-aos="fade-up">
-          <img data-src="https://placehold.co/600x400/1D1D1D/FFFFFF?text=SubSage"
-               class="card-img-top" alt="iOS-додаток SubSage">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title">SubSage: Розумний Менеджер Підписок</h5>
-            <p class="card-text">Елегантний та інтуїтивно зрозумілий iOS-додаток для легкого керування усіма вашими щомісячними та щорічними підписками.</p>
-            <div class="mt-auto">
-              <div class="mb-3">
-                <span class="badge">SwiftUI</span>
-                <span class="badge">Core Data</span>
-                <span class="badge">Push Notifications</span>
-                <span class="badge">Analytics</span>
-              </div>
-              <a href="projects/subsage/" class="btn btn-primary w-100">
-                Детальніше <i class="bi bi-arrow-right ms-1"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card h-100 project-card" data-aos="fade-up">
-          <img data-src="https://placehold.co/600x400/1D1D1D/FFFFFF?text=TidyShelf"
-               class="card-img-top" alt="TidyShelf: Read Later & Article Saver">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title">TidyShelf: Read Later & Article Saver</h5>
-            <p class="card-text">Зберігає статті для читання пізніше — повністю офлайн, без реєстрації. Reader Mode, теги, пошук, dark mode. Опублікований у Chrome Web Store.</p>
-            <div class="mt-auto">
-              <div class="mb-3">
-                <span class="badge">Manifest V3</span>
-                <span class="badge">JavaScript</span>
-                <span class="badge">Chrome Storage API</span>
-                <span class="badge">Readability</span>
-              </div>
-              <a href="https://chromewebstore.google.com/detail/tidyshelf-read-later-arti/gonfhagnfhpgojiffekkpopdhafenoop" target="_blank" rel="noopener noreferrer" class="btn btn-primary w-100">
-                Chrome Web Store <i class="bi bi-arrow-right ms-1"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card h-100 project-card" data-aos="fade-up">
-          <img data-src="https://placehold.co/600x400/1D1D1D/FFFFFF?text=DoneDay"
-               class="card-img-top" alt="DoneDay iOS App">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title">DoneDay: Task Manager</h5>
-            <p class="card-text">iOS task manager з GTD-підходом (Tasks → Projects → Areas). Dynamic Island, Push Notifications, локалізація EN/UK.</p>
-            <div class="mt-auto">
-              <div class="mb-3">
-                <span class="badge">SwiftUI</span>
-                <span class="badge">Core Data</span>
-                <span class="badge">MVVM</span>
-                <span class="badge">Dynamic Island</span>
-              </div>
-              <button class="btn btn-primary w-100" disabled>
-                Скоро
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card h-100 project-card" data-aos="fade-up">
-          <img data-src="https://placehold.co/600x400/2A2A2A/666666?text=🔒"
-               class="card-img-top" alt="Приватний проект">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title text-muted">Комерційний проєкт</h5>
-            <p class="card-text text-muted">Деталі проєкту не розголошуються.</p>
-            <div class="mt-auto">
-              <div class="mb-3">
-                <span class="badge">macOS</span>
-                <span class="badge">Swift</span>
-              </div>
-              <button class="btn btn-primary w-100" disabled>
-                Приватний
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card h-100 project-card" data-aos="fade-up">
-          <img data-src="https://placehold.co/600x400/1D1D1D/FFFFFF?text=PageSieve"
-               class="card-img-top" alt="Інструмент PageSieve">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title">PageSieve: Інструмент для Пошуку Контактів</h5>
-            <p class="card-text">Інструмент для пошуку контактів на веб-сторінках.</p>
-            <div class="mt-auto">
-              <div class="mb-3">
-                <span class="badge">HTML</span>
-                <span class="badge">CSS</span>
-                <span class="badge">JavaScript</span>
-              </div>
-              <button class="btn btn-primary w-100" disabled>
-                У розробці
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 </main>
-<footer id="contact" class="py-5 text-center" data-aos="fade-up">
+<footer id="contact" class="py-5 text-center">
     <div class="container">
         <h2 class="mb-3 section-title">Зв'яжіться зі мною</h2>
         <p class="lead mb-4">Буду радий відповісти на ваші запитання та обговорити можливу співпрацю.</p>

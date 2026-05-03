@@ -70,10 +70,10 @@
 <body>
 <a href="#about" class="skip-link">Skip to main content</a>
 
-<nav class="navbar navbar-expand-lg fixed-top" data-aos="fade-down">
+<nav class="navbar navbar-expand-lg fixed-top">
     <div class="container align-items-center">
         <a class="navbar-brand me-auto fw-bold" href="#about">Yaroslav Tkachenko</a>
-        
+
         <div class="d-flex align-items-center me-3 order-lg-2">
             <button class="theme-switcher me-2" id="theme-toggle" aria-label="Theme switcher">
               <i class="bi bi-sun-fill theme-icon sun-icon"></i>
@@ -83,12 +83,12 @@
         </div>
 
         <button class="navbar-toggler order-lg-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-        
+
         <div class="collapse navbar-collapse flex-grow-0 ms-auto order-lg-1" id="navbarNav">
             <ul class="navbar-nav mb-2 mb-lg-0">
                 <li class="nav-item"><a class="nav-link px-3" href="#about">About</a></li>
-                <li class="nav-item"><a class="nav-link px-3" href="#experience">Experience</a></li>
                 <li class="nav-item"><a class="nav-link px-3" href="#portfolio">Portfolio</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="#experience">Experience</a></li>
                 <li class="nav-item"><a class="nav-link px-3" href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -110,7 +110,138 @@
         </div>
     </div>
 </header>
-<section id="experience" class="py-5" data-aos="fade-up">
+<section id="portfolio" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-5 section-title">Portfolio</h2>
+    <div class="row">
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100 project-card">
+          <img data-src="../projects/covers/subsage.svg"
+               class="card-img-top" alt="SubSage iOS App">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">SubSage: Smart Subscription Manager</h5>
+            <p class="card-text">An elegant and intuitive iOS application designed to let you easily manage all of your monthly and annual subscriptions.</p>
+            <div class="mt-auto">
+              <div class="mb-3">
+                <span class="badge">SwiftUI</span>
+                <span class="badge">Core Data</span>
+                <span class="badge">Push Notifications</span>
+                <span class="badge">Analytics</span>
+              </div>
+              <a href="../projects/subsage/en/" class="btn btn-primary w-100">
+                View Details <i class="bi bi-arrow-right ms-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100 project-card">
+          <img data-src="../projects/covers/tidyshelf.svg"
+               class="card-img-top" alt="TidyShelf: Read Later & Article Saver">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">TidyShelf: Read Later & Article Saver</h5>
+            <p class="card-text">Saves articles for later reading — fully offline, no registration. Reader Mode, tags, search, dark mode. Published on Chrome Web Store.</p>
+            <div class="mt-auto">
+              <div class="mb-3">
+                <span class="badge">Manifest V3</span>
+                <span class="badge">JavaScript</span>
+                <span class="badge">Chrome Storage API</span>
+                <span class="badge">Readability</span>
+              </div>
+              <a href="https://chromewebstore.google.com/detail/tidyshelf-read-later-arti/gonfhagnfhpgojiffekkpopdhafenoop" target="_blank" rel="noopener noreferrer" class="btn btn-primary w-100">
+                Chrome Web Store <i class="bi bi-arrow-right ms-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100 project-card">
+          <img data-src="../projects/covers/doneday.svg"
+               class="card-img-top" alt="DoneDay iOS App">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">DoneDay: Task Manager</h5>
+            <p class="card-text">iOS task manager with GTD approach (Tasks → Projects → Areas). Dynamic Island, Push Notifications, EN/UK localization.</p>
+            <div class="mt-auto">
+              <div class="mb-3">
+                <span class="badge">SwiftUI</span>
+                <span class="badge">Core Data</span>
+                <span class="badge">MVVM</span>
+                <span class="badge">Dynamic Island</span>
+              </div>
+              <button class="btn btn-primary w-100" disabled>
+                Coming Soon
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100 project-card">
+          <img data-src="../projects/fgh/fgh-cover.svg"
+               class="card-img-top" alt="FGH — private macOS app">
+
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">FGH: Commercial macOS App</h5>
+            <p class="card-text">A private commercial project. Public details are limited, but a preview build is available to evaluate UX quality, interface polish, and native macOS implementation.</p>
+            <div class="mt-auto">
+              <div class="mb-3">
+                <span class="badge">macOS</span>
+                <span class="badge">Swift</span>
+                <span class="badge">Private Build</span>
+              </div>
+              <a href="../projects/fgh/en/" class="btn btn-primary w-100">
+                View Details <i class="bi bi-arrow-right ms-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100 project-card">
+          <img data-src="../projects/covers/pagesieve.svg"
+               class="card-img-top" alt="PageSieve Tool">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">PageSieve: Smart Contact Finder</h5>
+            <p class="card-text">A tool for searching contacts on web pages.</p>
+            <div class="mt-auto">
+              <div class="mb-3">
+                <span class="badge">HTML</span>
+                <span class="badge">CSS</span>
+                <span class="badge">JavaScript</span>
+              </div>
+              <button class="btn btn-primary w-100" disabled>
+                In Development
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100 project-card">
+          <img data-src="../projects/covers/filekit.svg"
+               class="card-img-top" alt="FileKit — macOS utility for file management">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">FileKit: macOS File Utility</h5>
+            <p class="card-text">A native macOS utility for fast file management. Details coming soon.</p>
+            <div class="mt-auto">
+              <div class="mb-3">
+                <span class="badge">macOS</span>
+                <span class="badge">SwiftUI</span>
+                <span class="badge">AppKit</span>
+              </div>
+              <button class="btn btn-primary w-100" disabled>
+                Coming Soon
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="experience" class="py-5">
     <div class="container">
         <h2 class="text-center mb-5 section-title">Experience & Skills</h2>
         <div class="row">
@@ -120,44 +251,27 @@
                     <h5>iOS Developer on Upwork</h5>
                     <p class="text-muted">August 2025 - Present | Remote Work</p>
                     <ul>
-                        <li>Developed commercial app with computer vision and text recognition</li>
-                        <li>Integrated ML Kit for OCR with support for 20+ languages</li>
-                        <li>Optimized performance through caching and batch processing</li>
-                        <li>Created automatic language detection system with NaturalLanguage</li>
-                        <li>Implemented image preprocessing to improve recognition accuracy</li>
-                    </ul>
-                </div>
-                <div class="mb-4">
-                    <h5>Author of Project "DoneDay"</h5>
-                    <p class="text-muted">Personal Project | 2024 - 2025</p>
-                    <ul>
-                        <li>Designed task manager with GTD approach (Tasks → Projects → Areas)</li>
-                        <li>Implemented MVVM + Repository Pattern architecture with clean separation of concerns</li>
-                        <li>Integrated Core Data for data persistence</li>
-                        <li>Implemented Dynamic Island integration and Push Notifications</li>
-                        <li>Added EN/UK localization</li>
+                        <li>Built a commercial OCR product with computer vision and multilingual text recognition.</li>
+                        <li>Improved recognition quality through preprocessing, automatic language detection, and ML Kit integration.</li>
+                        <li>Optimized performance with caching and batch processing for faster real-world scans.</li>
                     </ul>
                 </div>
                 <div class="mb-4">
                     <h5>Author of Project "TidyShelf"</h5>
                     <p class="text-muted">Chrome Extension | 2025</p>
                     <ul>
-                        <li>Developed and published extension on Chrome Web Store</li>
-                        <li>Implemented Manifest V3 with Service Worker and Content Scripts</li>
-                        <li>Integrated Mozilla Readability for Reader Mode</li>
-                        <li>Built tags, search, filters, statistics, and dark mode</li>
-                        <li>100% local storage — no servers, no tracking</li>
+                        <li>Designed and published a Manifest V3 extension for the Chrome Web Store.</li>
+                        <li>Implemented reader mode, tagging, search, filters, and local-first article saving.</li>
+                        <li>Shipped a privacy-first product with 100% local storage and no tracking.</li>
                     </ul>
                 </div>
                 <div class="mb-4">
                     <h5>Author of Project "SubSage"</h5>
                     <p class="text-muted">Personal Project | 2024 - 2025</p>
                     <ul>
-                        <li>Fully designed the application architecture using SwiftUI</li>
-                        <li>Implemented local data persistence with Core Data</li>
-                        <li>Integrated subscription analytics and Push Notifications</li>
-                        <li>Implemented subscription archive and custom icons</li>
-                        <li>Added EN/UK localization</li>
+                        <li>Created a SwiftUI subscription manager focused on clarity, analytics, and reminders.</li>
+                        <li>Built local persistence with Core Data plus subscription archive and custom icon support.</li>
+                        <li>Delivered bilingual UX with push notifications and a polished iOS-first experience.</li>
                     </ul>
                 </div>
             </div>
@@ -185,117 +299,8 @@
         </div>
     </div>
 </section>
-<section id="portfolio" class="py-5 bg-light" data-aos="fade-up">
-  <div class="container">
-    <h2 class="text-center mb-5 section-title">Portfolio</h2>
-    <div class="row">
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card h-100 project-card" data-aos="fade-up">
-          <img data-src="https://placehold.co/600x400/1D1D1D/FFFFFF?text=SubSage"
-               class="card-img-top" alt="SubSage iOS App">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title">SubSage: Smart Subscription Manager</h5>
-            <p class="card-text">An elegant and intuitive iOS application designed to let you easily manage all of your monthly and annual subscriptions.</p>
-            <div class="mt-auto">
-              <div class="mb-3">
-                <span class="badge">SwiftUI</span>
-                <span class="badge">Core Data</span>
-                <span class="badge">Push Notifications</span>
-                <span class="badge">Analytics</span>
-              </div>
-              <a href="../projects/subsage/en/" class="btn btn-primary w-100">
-                View Details <i class="bi bi-arrow-right ms-1"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card h-100 project-card" data-aos="fade-up">
-          <img data-src="https://placehold.co/600x400/1D1D1D/FFFFFF?text=TidyShelf"
-               class="card-img-top" alt="TidyShelf: Read Later & Article Saver">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title">TidyShelf: Read Later & Article Saver</h5>
-            <p class="card-text">Saves articles for later reading — fully offline, no registration. Reader Mode, tags, search, dark mode. Published on Chrome Web Store.</p>
-            <div class="mt-auto">
-              <div class="mb-3">
-                <span class="badge">Manifest V3</span>
-                <span class="badge">JavaScript</span>
-                <span class="badge">Chrome Storage API</span>
-                <span class="badge">Readability</span>
-              </div>
-              <a href="https://chromewebstore.google.com/detail/tidyshelf-read-later-arti/gonfhagnfhpgojiffekkpopdhafenoop" target="_blank" rel="noopener noreferrer" class="btn btn-primary w-100">
-                Chrome Web Store <i class="bi bi-arrow-right ms-1"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card h-100 project-card" data-aos="fade-up">
-          <img data-src="https://placehold.co/600x400/1D1D1D/FFFFFF?text=DoneDay"
-               class="card-img-top" alt="DoneDay iOS App">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title">DoneDay: Task Manager</h5>
-            <p class="card-text">iOS task manager with GTD approach (Tasks → Projects → Areas). Dynamic Island, Push Notifications, EN/UK localization.</p>
-            <div class="mt-auto">
-              <div class="mb-3">
-                <span class="badge">SwiftUI</span>
-                <span class="badge">Core Data</span>
-                <span class="badge">MVVM</span>
-                <span class="badge">Dynamic Island</span>
-              </div>
-              <button class="btn btn-primary w-100" disabled>
-                Coming Soon
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card h-100 project-card" data-aos="fade-up">
-          <img data-src="https://placehold.co/600x400/2A2A2A/666666?text=🔒"
-               class="card-img-top" alt="Private project">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title text-muted">Commercial Project</h5>
-            <p class="card-text text-muted">Project details are confidential.</p>
-            <div class="mt-auto">
-              <div class="mb-3">
-                <span class="badge">macOS</span>
-                <span class="badge">Swift</span>
-              </div>
-              <button class="btn btn-primary w-100" disabled>
-                Private
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card h-100 project-card" data-aos="fade-up">
-          <img data-src="https://placehold.co/600x400/1D1D1D/FFFFFF?text=PageSieve"
-               class="card-img-top" alt="PageSieve Tool">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title">PageSieve: Smart Contact Finder</h5>
-            <p class="card-text">A tool for searching contacts on web pages.</p>
-            <div class="mt-auto">
-              <div class="mb-3">
-                <span class="badge">HTML</span>
-                <span class="badge">CSS</span>
-                <span class="badge">JavaScript</span>
-              </div>
-              <button class="btn btn-primary w-100" disabled>
-                In Development
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 </main>
-<footer id="contact" class="py-5 text-center" data-aos="fade-up">
+<footer id="contact" class="py-5 text-center">
     <div class="container">
         <h2 class="mb-3 section-title">Contact Me</h2>
         <p class="lead mb-4">I would be happy to answer your questions and discuss potential collaboration.</p>

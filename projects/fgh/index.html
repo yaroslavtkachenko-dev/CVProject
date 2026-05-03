@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' https://cdn.jsdelivr.net https://unpkg.com 'unsafe-inline';
+        style-src 'self' https://cdn.jsdelivr.net https://fonts.googleapis.com https://unpkg.com 'unsafe-inline';
+        font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net;
+        img-src 'self' data: https://placehold.co https://*.gravatar.com;
+        connect-src 'self';
+        frame-ancestors 'none';
+        base-uri 'self';
+        form-action 'self';
+        upgrade-insecure-requests;
+    ">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Yaroslav Tkachenko">
+  <link rel="canonical" href="https://yaroslavtkachenko-dev.github.io/CVProject/projects/fgh/">
+  <link rel="alternate" hreflang="uk" href="https://yaroslavtkachenko-dev.github.io/CVProject/projects/fgh/">
+  <link rel="alternate" hreflang="en" href="https://yaroslavtkachenko-dev.github.io/CVProject/projects/fgh/en/">
+
+  <title>FGH — нативний кліпборд для macOS | Ярослав Ткаченко</title>
+  <meta name="description" content="FGH — нативний macOS-застосунок для menu bar: чистить буфер обміну від трекерів і AI-водяних знаків, шифрує історію AES-256-GCM у Keychain, повертає одним хоткеєм.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="FGH — нативний кліпборд для macOS">
+  <meta property="og:description" content="Чистить буфер обміну, шифрує історію AES-256-GCM у Keychain і повертає її одним хоткеєм. Swift, SwiftUI, AppKit. macOS 13+.">
+  <meta property="og:url" content="https://yaroslavtkachenko-dev.github.io/CVProject/projects/fgh/">
+  <meta property="og:locale" content="uk_UA">
+  <meta property="og:locale:alternate" content="en_US">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="../../style.css" as="style">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="manifest" href="../../site.webmanifest">
+</head>
+<body class="fgh-page">
+<a href="#main-content" class="skip-link">Перейти до основного вмісту</a>
+
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container align-items-center">
+    <a class="navbar-brand me-auto fw-bold" href="../../">Ярослав Ткаченко</a>
+
+    <div class="d-flex align-items-center me-3 order-lg-2">
+      <button class="theme-switcher me-2" id="theme-toggle" aria-label="Перемикач теми">
+        <i class="bi bi-sun-fill theme-icon sun-icon"></i>
+        <i class="bi bi-moon-fill theme-icon moon-icon"></i>
+      </button>
+      <a href="en/" class="nav-link p-2 fw-bold text-decoration-none" aria-label="English">EN</a>
+    </div>
+
+    <button class="navbar-toggler order-lg-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Перемикач навігації"><span class="navbar-toggler-icon"></span></button>
+
+    <div class="collapse navbar-collapse flex-grow-0 ms-auto order-lg-1" id="navbarNav">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link px-3" href="../../#about">Про мене</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="../../#portfolio">Портфоліо</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="#contact">Контакти</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main id="main-content">
+  <section class="fgh-hero py-5 mt-5" data-aos="fade-up">
+    <div class="container">
+      <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../../">Головна</a></li>
+          <li class="breadcrumb-item"><a href="../../#portfolio">Портфоліо</a></li>
+          <li class="breadcrumb-item active">FGH</li>
+        </ol>
+      </nav>
+
+      <div class="row align-items-center g-5">
+        <div class="col-lg-7 col-xl-6">
+          <p class="fgh-kicker mb-3">Нативний macOS menu bar застосунок</p>
+          <h1 class="display-5 mb-4">FGH — кліпборд, що чистить і шифрує</h1>
+          <p class="lead mb-4">Все, що ви копіюєте, автоматично очищується від трекерів і прихованих AI-водяних знаків, шифрується AES-256-GCM у Keychain і повертається назад одним хоткеєм.</p>
+
+          <div class="fgh-specs mb-4" aria-label="Факти про проєкт">
+            <div class="fgh-spec">
+              <span class="fgh-spec-val">Swift</span>
+              <span class="fgh-spec-label">Мова</span>
+            </div>
+            <div class="fgh-spec">
+              <span class="fgh-spec-val">macOS 13+</span>
+              <span class="fgh-spec-label">Платформа</span>
+            </div>
+            <div class="fgh-spec">
+              <span class="fgh-spec-val">Menu bar</span>
+              <span class="fgh-spec-label">Форм-фактор</span>
+            </div>
+            <div class="fgh-spec">
+              <span class="fgh-spec-val">AES-256-GCM</span>
+              <span class="fgh-spec-label">Шифрування</span>
+            </div>
+          </div>
+
+          <div class="d-flex flex-wrap gap-3 align-items-center">
+            <a href="../../downloads/fgh-demo.zip" download class="btn btn-primary btn-lg fgh-download-btn">
+              Завантажити для macOS <i class="bi bi-download ms-2"></i>
+            </a>
+            <a href="#contact" class="btn btn-outline-secondary btn-lg">Написати мені</a>
+          </div>
+          <p class="fgh-private-note mt-4 mb-0">Безкоштовна early-збірка. Працює офлайн, без телеметрії, без аналітики, без обовʼязкового акаунту.</p>
+        </div>
+
+        <div class="col-lg-5 col-xl-6">
+          <div id="fghScreenshotCarousel" class="carousel slide fgh-screenshot-carousel" data-bs-interval="false" data-bs-touch="true" aria-label="Скріншоти FGH">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <a href="images/clipboard-history.jpeg" class="fgh-carousel-frame" aria-label="Відкрити скріншот Clipboard History">
+                  <img src="images/clipboard-history.jpeg"
+                       alt="FGH — вікно Clipboard History із бейджами очищення"
+                       class="fgh-carousel-image">
+                </a>
+              </div>
+              <div class="carousel-item">
+                <a href="images/clean-text.jpeg" class="fgh-carousel-frame" aria-label="Відкрити скріншот Clean Text">
+                  <img src="images/clean-text.jpeg"
+                       alt="FGH — панель Clean Text з увімкненими фільтрами"
+                       class="fgh-carousel-image">
+                </a>
+              </div>
+              <div class="carousel-item">
+                <a href="images/settings.jpeg" class="fgh-carousel-frame" aria-label="Відкрити скріншот Settings">
+                  <img src="images/settings.jpeg"
+                       alt="FGH — загальні налаштування застосунку"
+                       class="fgh-carousel-image">
+                </a>
+              </div>
+            </div>
+            <button class="carousel-control-prev fgh-carousel-control" type="button" data-bs-target="#fghScreenshotCarousel" data-bs-slide="prev" aria-label="Попередній скріншот">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next fgh-carousel-control" type="button" data-bs-target="#fghScreenshotCarousel" data-bs-slide="next" aria-label="Наступний скріншот">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+            <div class="carousel-indicators fgh-carousel-indicators">
+              <button type="button" data-bs-target="#fghScreenshotCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Clipboard History"></button>
+              <button type="button" data-bs-target="#fghScreenshotCarousel" data-bs-slide-to="1" aria-label="Clean Text"></button>
+              <button type="button" data-bs-target="#fghScreenshotCarousel" data-bs-slide-to="2" aria-label="Settings"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="py-5" data-aos="fade-up">
+    <div class="container">
+      <p class="fgh-section-eyebrow">Можливості</p>
+      <h2 class="section-title mb-3">Три речі, які FGH робить добре</h2>
+      <p class="fgh-section-sub">Кожна фіча працює локально — без хмари, акаунтів і фонових запитів. Всі трансформації тексту й зберігання історії відбуваються лише на вашому Mac.</p>
+
+      <div class="demo-grid">
+        <div class="demo-card">
+          <p class="demo-num">01</p>
+          <h3>Clean Text</h3>
+          <p>Знімає UTM і трекінг-параметри з посилань, видаляє невидимі AI-водяні знаки (zero-width Unicode), декодує HTML-сутності, нормалізує лапки, тире, три крапки, переноси та списки. Code-detection не чіпає блоки коду.</p>
+        </div>
+        <div class="demo-card">
+          <p class="demo-num">02</p>
+          <h3>Шифрована історія</h3>
+          <p>До 100 елементів, TTL 72 години, повнотекстовий пошук. Все шифрується AES-256-GCM, ключ зберігається у macOS Keychain. Cleaning-summary показує, що саме було видалено з кожного скопійованого фрагмента.</p>
+        </div>
+        <div class="demo-card">
+          <p class="demo-num">03</p>
+          <h3>Швидкість menu bar</h3>
+          <p>Quick-paste ⌥⌘1–9 для перших девʼяти елементів, hover-дії copy і delete, кольорові індикатори результатів очищення. Без Spotlight, без вікна — все за один хоткей.</p>
+        </div>
+        <div class="demo-card">
+          <p class="demo-num">04</p>
+          <h3>Privacy by default</h3>
+          <p>Без аналітики, без телеметрії, без обовʼязкового акаунту. Працює офлайн. Поставляється з PrivacyInfo.xcprivacy маніфестом і прозорим списком запитуваних дозволів macOS.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light">
+    <div class="container">
+      <p class="fgh-section-eyebrow">Технічні деталі</p>
+      <h2 class="section-title mb-4">Під капотом</h2>
+
+      <div class="fgh-tech-table">
+        <div class="fgh-tech-row">
+          <span class="fgh-tech-key">Платформа</span>
+          <span class="fgh-tech-val">Native macOS menu bar застосунок.</span>
+        </div>
+        <div class="fgh-tech-row">
+          <span class="fgh-tech-key">Мова та фреймворки</span>
+          <span class="fgh-tech-val">Swift, SwiftUI, AppKit, CryptoKit.</span>
+        </div>
+        <div class="fgh-tech-row">
+          <span class="fgh-tech-key">Шифрування</span>
+          <span class="fgh-tech-val">AES-256-GCM. 256-бітний симетричний ключ зберігається у macOS Keychain із fallback на ephemeral in-memory key, якщо запис у Keychain недоступний.</span>
+        </div>
+        <div class="fgh-tech-row">
+          <span class="fgh-tech-key">Історія</span>
+          <span class="fgh-tech-val">До 100 елементів, TTL 72 години, повнотекстовий пошук, quick-paste ⌥⌘1–9.</span>
+        </div>
+        <div class="fgh-tech-row">
+          <span class="fgh-tech-key">Системні вимоги</span>
+          <span class="fgh-tech-val">macOS 13.0 Ventura або новіша. Apple Silicon і Intel.</span>
+        </div>
+        <div class="fgh-tech-row">
+          <span class="fgh-tech-key">Поточна версія</span>
+          <span class="fgh-tech-val">2.5</span>
+        </div>
+        <div class="fgh-tech-row">
+          <span class="fgh-tech-key">Локалізація</span>
+          <span class="fgh-tech-val">Українська, English.</span>
+        </div>
+        <div class="fgh-tech-row">
+          <span class="fgh-tech-key">Privacy</span>
+          <span class="fgh-tech-val">PrivacyInfo.xcprivacy маніфест. Без аналітики, без телеметрії, без мережевих запитів.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="download" class="py-5">
+    <div class="container">
+      <div class="fgh-nda-note">
+        <span class="fgh-nda-label">Дозволи macOS</span>
+        <div class="fgh-nda-body">
+          <p>Для роботи quick-paste хоткеїв ⌥⌘1–9 апка просить дозвіл <strong>Accessibility</strong> у System Settings — це потрібно для симуляції натискання ⌘V у активному застосунку. Без цього дозволу історія, пошук і Clean Text продовжують працювати, лише вставка вимагатиме звичайного ⌘V.</p>
+          <p>Жодних інших фонових дозволів апка не запитує. Усі дані залишаються на вашому Mac.</p>
+        </div>
+      </div>
+
+      <div class="fgh-download-wrap">
+        <h2>Завантажити для macOS</h2>
+        <p>Запустіть збірку на Mac із macOS 13 або новіше, скопіюйте кілька посилань або фрагментів тексту з ChatGPT і подивіться, що саме FGH прибирає. Іконка живе у menu bar.</p>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="../../downloads/fgh-demo.zip" download class="btn btn-primary fgh-download-btn">
+            Завантажити macOS build
+          </a>
+          <a href="#contact" class="btn btn-outline-secondary">Написати мені</a>
+        </div>
+        <p class="fgh-download-note mt-3 mb-0">Якщо завантаження тимчасово недоступне — напишіть мені, надішлю збірку напряму.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact" class="py-5 text-center">
+  <div class="container">
+    <h2 class="mb-3 section-title">Зв'яжіться зі мною</h2>
+    <p class="lead mb-4">Буду радий відповісти на ваші запитання та обговорити можливу співпрацю.</p>
+    <div class="mb-4">
+      <a href="https://www.linkedin.com/in/yaroslav-tkachenko-bb1b3a267?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer" class="mx-3 fs-2" title="LinkedIn" aria-label="Мій профіль LinkedIn"><i class="bi bi-linkedin"></i></a>
+      <a href="https://www.upwork.com/freelancers/~01094b5c9123b29a67" target="_blank" rel="noopener noreferrer" class="mx-3 fs-2" title="Upwork" aria-label="Мій профіль Upwork"><i class="bi bi-briefcase-fill"></i></a>
+      <a href="https://github.com/yaroslavtkachenko-dev" target="_blank" rel="noopener noreferrer" class="mx-3 fs-2" title="GitHub" aria-label="Мій профіль GitHub"><i class="bi bi-github"></i></a>
+    </div>
+    <p class="mb-0">&copy; 2026 Ярослав Ткаченко. Всі права захищено.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script src="../../js/main.js"></script>
+</body>
+</html>

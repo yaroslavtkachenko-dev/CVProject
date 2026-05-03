@@ -1,23 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://your-domain.com/</loc>
-        <lastmod>2025-07-12</lastmod>
+        <loc>https://yaroslavtkachenko-dev.github.io/CVProject/</loc>
+        <lastmod>2026-04-25</lastmod>
         <priority>1.00</priority>
     </url>
     <url>
-        <loc>https://your-domain.com/en/</loc>
-        <lastmod>2025-07-12</lastmod>
+        <loc>https://yaroslavtkachenko-dev.github.io/CVProject/en/</loc>
+        <lastmod>2026-04-25</lastmod>
         <priority>0.80</priority>
     </url>
     <url>
-        <loc>https://your-domain.com/projects/subsage/</loc>
-        <lastmod>2025-07-12</lastmod>
+        <loc>https://yaroslavtkachenko-dev.github.io/CVProject/projects/subsage/</loc>
+        <lastmod>2026-04-25</lastmod>
         <priority>0.70</priority>
     </url>
     <url>
-        <loc>https://your-domain.com/projects/subsage/en/</loc>
-        <lastmod>2025-07-12</lastmod>
+        <loc>https://yaroslavtkachenko-dev.github.io/CVProject/projects/subsage/en/</loc>
+        <lastmod>2026-04-25</lastmod>
+        <priority>0.60</priority>
+    </url>
+    <url>
+        <loc>https://yaroslavtkachenko-dev.github.io/CVProject/projects/fgh/</loc>
+        <lastmod>2026-04-25</lastmod>
+        <priority>0.70</priority>
+    </url>
+    <url>
+        <loc>https://yaroslavtkachenko-dev.github.io/CVProject/projects/fgh/en/</loc>
+        <lastmod>2026-04-25</lastmod>
         <priority>0.60</priority>
     </url>
 </urlset>

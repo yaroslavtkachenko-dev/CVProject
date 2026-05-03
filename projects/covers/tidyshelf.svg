@@ -1,0 +1,48 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">TidyShelf cover</title>
+  <desc id="desc">Cover art for TidyShelf read-later app.</desc>
+  <defs>
+    <linearGradient id="bg" x1="120" y1="70" x2="1080" y2="730" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1F0A07"/>
+      <stop offset="0.48" stop-color="#2A1208"/>
+      <stop offset="1" stop-color="#3B1A0A"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="310" y1="160" x2="900" y2="640" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F59E0B"/>
+      <stop offset="0.55" stop-color="#F97316"/>
+      <stop offset="1" stop-color="#DC2626"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(830 230) rotate(132) scale(560 400)">
+      <stop stop-color="#F97316" stop-opacity="0.45"/>
+      <stop offset="0.42" stop-color="#DC2626" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#020617" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="192" y="128" width="816" height="566" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="28"/>
+      <feGaussianBlur stdDeviation="42"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.05 0 0 0 0 0.02 0 0 0 0 0.01 0 0 0 0.48 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1" result="shape"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="800" rx="56" fill="url(#bg)"/>
+  <rect width="1200" height="800" rx="56" fill="url(#glow)"/>
+  <path d="M122 665C243 577 367 533 494 533C646 533 751 636 884 628C982 623 1047 559 1100 494" stroke="#F59E0B" stroke-opacity="0.16" stroke-width="2"/>
+  <path d="M94 171C194 231 308 260 436 257C557 254 639 198 755 197C906 196 1014 291 1106 392" stroke="#DC2626" stroke-opacity="0.13" stroke-width="2"/>
+
+  <g filter="url(#shadow)">
+    <rect x="240" y="168" width="720" height="480" rx="34" fill="#1A0A06" fill-opacity="0.82" stroke="#F8FAFC" stroke-opacity="0.16"/>
+    <rect x="240" y="168" width="720" height="72" rx="34" fill="#F8FAFC" fill-opacity="0.06"/>
+    <circle cx="292" cy="204" r="10" fill="#EF4444"/>
+    <circle cx="324" cy="204" r="10" fill="#F59E0B"/>
+    <circle cx="356" cy="204" r="10" fill="#22C55E"/>
+    <text x="600" y="209" text-anchor="middle" fill="#FCD34D" fill-opacity="0.68" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" letter-spacing="2">READ LATER</text>
+
+    <text x="600" y="430" text-anchor="middle" fill="#F8FAFC" font-family="Inter, system-ui, sans-serif" font-size="96" font-weight="800" letter-spacing="-3">TidyShelf</text>
+    <text x="600" y="490" text-anchor="middle" fill="url(#accent)" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="700">curated reading queue</text>
+  </g>
+</svg>
